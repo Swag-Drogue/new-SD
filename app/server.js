@@ -23,10 +23,10 @@ app.use(webpackHotMiddleware(compiler, {
 
 app.use(express.static('./public'));
 
-app.get('/hello', function(req, res) {
+app.get('/hello', function (req, res) {
   res.send('Hello, world!');
 });
 
-app.listen(3000, function() {
+app.listen(3000, function () {
   console.log('Listening on 3000');
 });
