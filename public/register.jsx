@@ -61,6 +61,7 @@ export default class Register extends Component {
       .end((err,res)=>{
         if(err) return alert(res.body.message);
         alert(res.body.message);
+        res.sendStatus(res.body.httpCode);
       })
   }
 }

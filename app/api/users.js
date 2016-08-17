@@ -1,25 +1,40 @@
 "use strict";
 import express from 'express';
-import _ from 'lodash';
 import {User} from '../db/schema';
+import {isEmpty, validSyntax, userExist} from './register';
 
 const router = express.Router();
 router.post('/', function (req, res, next) {
   const data = req.body;
-  if (_.isEmpty(data)) {
-    res.json({
+  if(!isEmpty(data)){
+    res.status(400)
+      .json({
       httpCode: 400,
       message: '用户名和密码不能为空'
-    })
-  } else {
+    });
+  }else if(!validSyntax(data)){
+    res.status(400)
+      .json({
+      httpCode: 400,
+      message: '用户名只能是6-20位数字、字母组成，密码只能是6位数字'
+    });
+  }else if(!userExist(data.userName)){
+    res.status(409)
+      .json({
+      httpCode: 409,
+      message: '该用户已存在'
+    });
+  }else {
     new User(data).save((err)=> {
       if (err) return next(err);
-      res.json({
+      res.status(201)
+        .json({
         httpCode: 201,
         message: '注册成功'
       });
     });
   }
 });
+
 
 export default router;
