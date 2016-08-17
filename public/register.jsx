@@ -59,8 +59,8 @@ export default class Register extends Component {
         password:this.state.password
       })
       .end((err,res)=>{
-        if(err) return console.error(err);
-        console.log(201);
+        if(err) return alert(res.body.message);
+        alert(res.body.message);
       })
   }
 }
