@@ -17,7 +17,7 @@ describe('test-success', () => {
     request(app)
       .post('/api/users')
       .send({userName: 'O1o2y354', password: '123456'})
-      .expect({httpCode: 201, message: '注册成功'}, finish(done));
+      .expect(201, '注册成功', finish(done));
   });
 });
 
@@ -26,33 +26,33 @@ describe('test-error-number', () => {
     request(app)
       .post('/api/users')
       .send({userName: '12345', password: '123456'})
-      .expect({httpCode: 400, message: '用户名只能是6-20位数字、字母组成，密码只能是6位数字'}, finish(done));
+      .expect(400, '用户名只能是6-20位数字、字母组成', finish(done));
   });
 
   it('用户名位数错误(21位)', (done) => {
     request(app)
       .post('/api/users')
       .send({userName: '123456789123456789456', password: '123456'})
-      .expect({httpCode: 400, message: '用户名只能是6-20位数字、字母组成，密码只能是6位数字'}, finish(done));
+      .expect(400, '用户名只能是6-20位数字、字母组成', finish(done));
   });
   it('密码位数错误(5位)', (done) => {
     request(app)
       .post('/api/users')
       .send({userName: '123456', password: '12345'})
-      .expect({httpCode: 400, message: '用户名只能是6-20位数字、字母组成，密码只能是6位数字'}, finish(done));
+      .expect(400, '密码只能是6位数字', finish(done));
   });
   it('密码位数错误(7位)', (done) => {
     request(app)
       .post('/api/users')
       .send({userName: '123456', password: '1234567'})
-      .expect({httpCode: 400, message: '用户名只能是6-20位数字、字母组成，密码只能是6位数字'}, finish(done));
+      .expect(400,'密码只能是6位数字', finish(done));
 
   });
   it('用户名密码位数都错误', (done) => {
     request(app)
       .post('/api/users')
       .send({userName: '1234', password: '1234567'})
-      .expect({httpCode: 400, message: '用户名只能是6-20位数字、字母组成，密码只能是6位数字'}, finish(done));
+      .expect(400, '用户名只能是6-20位数字、字母组成', finish(done));
   });
 });
 
@@ -62,39 +62,39 @@ describe('test-error-formmated', () => {
     request(app)
       .post('/api/users')
       .send({userName: '1234*689fsf', password: '123456'})
-      .expect({httpCode: 400, message: '用户名只能是6-20位数字、字母组成，密码只能是6位数字'}, finish(done));
+      .expect(400,  '用户名只能是6-20位数字、字母组成', finish(done));
   });
   it('密码格式都错误', (done) => {
     request(app)
       .post('/api/users')
       .send({userName: '1234jvfdh', password: '1234_5'})
-      .expect({httpCode: 400, message: '用户名只能是6-20位数字、字母组成，密码只能是6位数字'}, finish(done));
+      .expect(400, '密码只能是6位数字', finish(done));
 
   });
   it('用户名密码格式都错误', (done) => {
     request(app)
       .post('/api/users')
       .send({userName: '12**569', password: '123_56'})
-      .expect({httpCode: 400, message: '用户名只能是6-20位数字、字母组成，密码只能是6位数字'}, finish(done));
+      .expect(400,  '用户名只能是6-20位数字、字母组成', finish(done));
 
   });
   it('用户名为空错误', (done) => {
     request(app)
       .post('/api/users')
       .send({userName: '', password: '123456'})
-      .expect({httpCode: 400, message: '用户名和密码不能为空'}, finish(done));
+      .expect(400, '用户名和密码不能为空', finish(done));
   });
   it('密码为空错误', (done) => {
     request(app)
       .post('/api/users')
       .send({userName: 'gerf548fsr8', password: ''})
-      .expect({httpCode: 400, message: '用户名和密码不能为空'}, finish(done));
+      .expect(400, '用户名和密码不能为空', finish(done));
   });
   it('用户名密码都为空错误', (done) => {
     request(app)
       .post('/api/users')
       .send({userName: '', password: ''})
-      .expect({httpCode: 400, message: '用户名和密码不能为空'}, finish(done));
+      .expect(400,  '用户名和密码不能为空', finish(done));
   });
 });
 describe('test-error-exist', () => {
@@ -102,7 +102,7 @@ describe('test-error-exist', () => {
     request(app)
       .post('/api/users')
       .send({userName: 'O1o2y354', password: '123456'})
-      .expect({httpCode: 409, message: '该用户已存在'}, finish(done));
+      .expect(409,  '该用户已存在', finish(done));
   });
   afterEach((done) => {
     db.close(finish(done));
