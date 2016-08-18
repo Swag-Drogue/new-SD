@@ -1,16 +1,15 @@
 function isEmpty(userData) {
-  let flag = false;
-  if (userData.userName === '' || userData.password === '') {
-    flag = true;
-  }
-  return flag;
+  return (userData.userName === '') || (userData.password === '')
 }
 
-function validSyntax(userData) {
+function validUserName(userData) {
   const userNameSyntax = /^[A-Za-z0-9]{6,20}$/;
-  const passwordSyntax = /^\d{6}$/;
-  return userNameSyntax.test(userData.userName) && passwordSyntax.test(userData.password);
-
+  return userNameSyntax.test(userData.userName);
 }
 
-export {isEmpty, validSyntax};
+function validPassword(userData) {
+  const passwordSyntax = /^\d{6}$/;
+  return passwordSyntax.test(userData.password);
+}
+
+export {isEmpty, validUserName, validPassword};
