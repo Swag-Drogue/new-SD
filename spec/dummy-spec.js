@@ -6,6 +6,10 @@ import finish from '../spec/finish';
 
 describe('test', () => {
 
+  beforeEach((done) => {
+    User.find().remove(finish(done));
+  });
+
   it('用户名和密码正确', (done) => {
     request(app)
       .post('/api/users')
