@@ -5,10 +5,10 @@ import finish from '../spec/finish';
 
 describe('test', () => {
 
-  xit('用户名和密码正确', (done) => {
+  it('用户名和密码正确', (done) => {
     request(app)
       .post('/api/users')
-      .send({userName: 'nike1234', password: '123456'})
+      .send({userName: 'nike1996', password: '123456'})
       .expect({httpCode: 201, message: '注册成功'}, function (err, data) {
           finish(done)(err);
       });
