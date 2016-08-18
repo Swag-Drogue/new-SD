@@ -17,17 +17,19 @@ function validSyntax(userData) {
   return flag;
 }
 
-function userExist(userName) {
-  let flag = true;
-  User.findOne({userName: userName}, function (err, user) {
-    if (err) throw err;
-    if(user===null){
-      console.log('xxx');
-    }else if(user.userName === userName){
-      flag = false;
-    }
-  });
-  return flag;
-}
+// function userExist(userName) {
+//   User.findOne({userName: userName}, function (err, user) {
+//     if (err) throw err;
+//     if(user===null){
+//       console.log('xxx');
+//       console.log(flag);
+//       return flag;
+//     }else if(user.userName === userName){
+//       flag = false;
+//       console.log(flag);
+//       return flag;
+//     }
+//   });
+// }
 
-export {isEmpty, validSyntax, userExist};
+export {isEmpty, validSyntax};
