@@ -1,0 +1,91 @@
+.register-body {
+    width: 400px;
+    height: 440px;
+    float: right;
+    margin-top: 110px;
+    margin-right: 80px;
+    position: relative;
+}
+
+.enter-form {
+    margin-top: 100px;
+    margin-left: 40px;;
+}
+
+.register {
+
+    font-size: 20px;
+    font-weight: 900;
+    border-left: 5px solid #00d0dc;
+    padding-left: 6px;
+}
+
+.login-in {
+    margin-top: 30px;
+    width: 300px;
+    margin-left: 80px;
+}
+
+.login-in a:link, .sign a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+.enter-button {
+    margin-top: 30px;
+    width: 300px;
+}
+
+.edit-lines {
+    list-style-type: none;
+    border-radius: 45px;
+    line-height: 40px;
+    color: #001100;
+}
+
+.edit-lines img {
+    width: 20px;
+    height: 20px;
+}
+
+.button-confirm {
+    margin-left: 125px;
+    margin-top: 40px;
+    width: 100px;
+}
+
+.button-confirm a:link {
+    color: #000;
+}
+
+.register-name {
+    border: none;
+    margin-left: 30px;
+    border-bottom: 2px dotted #000000;
+    width: 90%;
+    font-size: 20px;
+}
+
+.register-password {
+    border: none;
+    margin-left: 30px;
+    border-bottom: 2px dotted #000000;
+    width: 90%;
+    margin-top: 10px;
+    font-size: 20px;
+
+}
+
+.register-confirmPassword {
+    border: none;
+    margin-left: 30px;
+    border-bottom: 2px dotted #000000;
+    width: 90%;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.picture {
+    width: 20px;
+    height: 20px;
+}
