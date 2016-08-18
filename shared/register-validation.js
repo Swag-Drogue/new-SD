@@ -1,4 +1,4 @@
-import {User} from '../db/schema';
+// import {User} from '../app/db/schema';
 
 function isEmpty(userData) {
   let flag = true;
