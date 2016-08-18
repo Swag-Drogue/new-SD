@@ -1,7 +1,7 @@
 "use strict";
 import express from 'express';
 import {User} from '../db/schema';
-import {isEmpty, validSyntax} from './register';
+import {isEmpty, validSyntax} from '../../shared/register';
 
 const router = express.Router();
 router.post('/', function (req, res, next) {
