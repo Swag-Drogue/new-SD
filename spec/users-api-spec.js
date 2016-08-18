@@ -82,11 +82,11 @@ fdescribe('users-api', () => {
   it('用户名已存在', (done) => {
     request(app)
       .post('/api/users')
-      .send({userName: 'AmberYLopez', password: '123456'})
+      .send({userName: 'O1o2y354', password: '123456'})
       .expect({httpCode: 409, message: '该用户已存在'}, function (err, data) {
         finish(done)(err);
       })
-  });
+  });e
 
 })
 ;
