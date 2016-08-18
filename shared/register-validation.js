@@ -1,35 +1,15 @@
-// import {User} from '../app/db/schema';
-
 function isEmpty(userData) {
-  let flag = true;
-  if (userData.userName === '' || userData.password === '') {
-    flag = false;
-  }
-  return flag;
+  return (userData.userName === '') || (userData.password === '')
 }
 
-function validSyntax(userData) {
-  let flag = true;
+function validUserName(userData) {
   const userNameSyntax = /^[A-Za-z0-9]{6,20}$/;
-  const passwordSyntax = /^\d{6}$/;
-
-  flag = userNameSyntax.test(userData.userName) && passwordSyntax.test(userData.password);
-  return flag;
+  return userNameSyntax.test(userData.userName);
 }
 
-// function userExist(userName) {
-//   User.findOne({userName: userName}, function (err, user) {
-//     if (err) throw err;
-//     if(user===null){
-//       console.log('xxx');
-//       console.log(flag);
-//       return flag;
-//     }else if(user.userName === userName){
-//       flag = false;
-//       console.log(flag);
-//       return flag;
-//     }
-//   });
-// }
+function validPassword(userData) {
+  const passwordSyntax = /^\d{6}$/;
+  return passwordSyntax.test(userData.password);
+}
 
-export {isEmpty, validSyntax};
+export {isEmpty, validUserName, validPassword};
