@@ -33,3 +33,5 @@ app.listen(3000, function () {
   db.connect();
   console.log('Listening on 3000');
 });
+
+export default app;
