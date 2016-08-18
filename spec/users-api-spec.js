@@ -8,10 +8,10 @@ import  async from 'async';
 
 describe('test-success', () => {
   beforeEach((done) => {
-    db.connect('test', (err) => {
-      if (err) return done.fail(err);
-      User.find().remove(finish(done));
-    });
+    async.series([
+      (cb) => db.connect('test', cb),
+      (cb) => User.find().remove(cb)
+    ], finish(done));
   });
   it('注册成功', (done) => {
     request(app)
@@ -45,7 +45,7 @@ describe('test-error-number', () => {
     request(app)
       .post('/api/users')
       .send({userName: '123456', password: '1234567'})
-      .expect(400,'密码只能是6位数字', finish(done));
+      .expect(400, '密码只能是6位数字', finish(done));
 
   });
   it('用户名密码位数都错误', (done) => {
@@ -62,7 +62,7 @@ describe('test-error-formmated', () => {
     request(app)
       .post('/api/users')
       .send({userName: '1234*689fsf', password: '123456'})
-      .expect(400,  '用户名只能是6-20位数字、字母组成', finish(done));
+      .expect(400, '用户名只能是6-20位数字、字母组成', finish(done));
   });
   it('密码格式都错误', (done) => {
     request(app)
@@ -75,7 +75,7 @@ describe('test-error-formmated', () => {
     request(app)
       .post('/api/users')
       .send({userName: '12**569', password: '123_56'})
-      .expect(400,  '用户名只能是6-20位数字、字母组成', finish(done));
+      .expect(400, '用户名只能是6-20位数字、字母组成', finish(done));
 
   });
   it('用户名为空错误', (done) => {
@@ -94,7 +94,7 @@ describe('test-error-formmated', () => {
     request(app)
       .post('/api/users')
       .send({userName: '', password: ''})
-      .expect(400,  '用户名和密码不能为空', finish(done));
+      .expect(400, '用户名和密码不能为空', finish(done));
   });
 });
 describe('test-error-exist', () => {
@@ -102,7 +102,7 @@ describe('test-error-exist', () => {
     request(app)
       .post('/api/users')
       .send({userName: 'O1o2y354', password: '123456'})
-      .expect(409,  '该用户已存在', finish(done));
+      .expect(409, '该用户已存在', finish(done));
   });
   afterEach((done) => {
     db.close(finish(done));
