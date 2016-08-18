@@ -86,7 +86,7 @@ fdescribe('users-api', () => {
       .expect({httpCode: 409, message: '该用户已存在'}, function (err, data) {
         finish(done)(err);
       })
-  });e
+  });
 
 })
 ;
