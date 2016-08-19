@@ -6,7 +6,7 @@ function checkUserName() {
   const userNameSyntax = /^[A-Za-z0-9]{6,20}$/;
   return userNameSyntax.test(userName.userName);
 }
-function checkPassword(userData) {
+function checkPassword() {
   let password = document.getElementById('password');
   const passwordSyntax = /^\d{6}$/;
   return passwordSyntax.test(userData.password);

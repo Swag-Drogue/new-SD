@@ -11,7 +11,7 @@ export default class Register extends Component {
       confirmPassword: '',
       userNameError: '',
       passwordError: '',
-      confirmPasswordError: 'false'
+      confirmPasswordError: ''
     }
   }
 

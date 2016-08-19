@@ -1,4 +1,4 @@
- Swag Drogue Demo
+Swag Drogue Demo
 ================
 
 CI status: ![Build Status](https://travis-ci.org/Swag-Drogue/new-SD.png?branch=master)
