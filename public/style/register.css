@@ -80,6 +80,7 @@ body {
     width: 90%;
     font-size: 20px;
     background: beige;
+    outline: none;
 }
 
 .register-password {
@@ -90,7 +91,7 @@ body {
     margin-top: 10px;
     font-size: 20px;
     background: beige;
-
+    outline: none;
 }
 
 .register-confirmPassword {
@@ -101,5 +102,5 @@ body {
     margin-top: 10px;
     font-size: 20px;
     background: beige;
-
+    outline: none;
 }
