@@ -30,9 +30,6 @@ router.post('/', function (req, res, next) {
           .send('注册成功');
       });
     });
-
   }
 });
-
-
 export default router;
