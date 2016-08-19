@@ -1,15 +1,21 @@
+body {
+    background: beige;
+}
+
 .register-body {
     width: 400px;
-    height: 440px;
+    height: 500px;
     float: right;
     margin-top: 110px;
-    margin-right: 80px;
+    margin-right: 200px;
     position: relative;
+
 }
 
 .enter-form {
     margin-top: 100px;
-    margin-left: 40px;;
+    margin-left: 40px;
+
 }
 
 .register {
@@ -18,22 +24,28 @@
     font-weight: 900;
     border-left: 5px solid #00d0dc;
     padding-left: 6px;
+
 }
 
 .login-in {
     margin-top: 30px;
     width: 300px;
     margin-left: 80px;
+
 }
 
 .login-in a:link, .sign a:visited {
     color: #000;
     text-decoration: none;
+
 }
 
-.enter-button {
+.button {
+    width: 20px;
+    height: 10px;
+    margin-left: 200px;
     margin-top: 30px;
-    width: 300px;
+
 }
 
 .edit-lines {
@@ -46,12 +58,15 @@
 .edit-lines img {
     width: 20px;
     height: 20px;
+
 }
 
 .button-confirm {
-    margin-left: 125px;
+    margin-left: 160px;
     margin-top: 40px;
     width: 100px;
+    border: 1px solid red;
+
 }
 
 .button-confirm a:link {
@@ -64,6 +79,7 @@
     border-bottom: 2px dotted #000000;
     width: 90%;
     font-size: 20px;
+    background: beige;
 }
 
 .register-password {
@@ -73,6 +89,7 @@
     width: 90%;
     margin-top: 10px;
     font-size: 20px;
+    background: beige;
 
 }
 
@@ -83,9 +100,6 @@
     width: 90%;
     margin-top: 10px;
     font-size: 20px;
-}
+    background: beige;
 
-.picture {
-    width: 20px;
-    height: 20px;
 }

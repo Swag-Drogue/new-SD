@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import request from 'superagent';
-import {checkPassword, checkUserName} from '../shared/register-validation-ui.js';
-
+import {validUserName, validPassword} from '../shared/register-validation.js';
 export default class Register extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +10,6 @@ export default class Register extends Component {
       confirmPassword: '',
       userNameError: '',
       passwordError: '',
-      confirmPasswordError: ''
     }
   }
 
@@ -24,30 +22,29 @@ export default class Register extends Component {
         </div>
         <div className="enter-button">
           <ul>
-            <li className="edit-lines"><img className="picture" src="images/reg.png"/>
-              <input type="text" placeholder="请输入8到20位数字字母" className="register-name"
+            <li className="edit-lines"><img src="images/reg.png"/>
+              <input type="text" placeholder="请输入6到20位数字字母" className="register-name"
                      onChange={this._onUserNameChange.bind(this)}
                      onBlur={this._checkUserName.bind(this)}/>
               <span>{this.state.userNameError}</span>
             </li>
-            <li className="edit-lines"><img className="picture" src="images/key.png"/>
+            <li className="edit-lines"><img src="images/key.png"/>
               <input type="password" placeholder="请输入6位密码" className="register-password"
                      onChange={this._onPasswordChange.bind(this)}
                      onBlur={this._checkPassword.bind(this)}/>
               <span>{this.state.passwordError}</span>
             </li>
-            <li className="edit-lines"><img className="picture" src="images/conKey.png"/>
+            <li className="edit-lines"><img src="images/conKey.png"/>
               <input type="password" placeholder="请确认你的密码" className="register-confirmPassword"
-                     onChange={this._onConfirmPasswordChange.bind(this)}
-                     onBlur={this._checkConfirmPassWord.bind(this)}/>
-              <span>{this.state.confirmPasswordError}</span>
+                     value={this.state.confirmPassword}
+                     onChange={this._onConfirmChange.bind(this)}/>
             </li>
           </ul>
-        </div>
-        <div>
-          <button className="button-confirm" type="submit" onClick={this._onSubmit.bind(this)}>
-            注&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;册
-          </button>
+          <div className="button">
+            <button className="btn btn-primary" type="submit" onClick={this._onSubmit.bind(this)}>
+              注&nbsp;&nbsp;&nbsp;&nbsp;册
+            </button>
+          </div>
         </div>
       </div>
     )
@@ -61,10 +58,10 @@ export default class Register extends Component {
   }
 
   _checkUserName(event) {
-    if (checkUserName(event.target.value)) {
+    if (validUserName(event.target.value)) {
       this.setState({userNameError: ''});
     } else {
-      this.setState({userNameError: '请输入8到20位数字或字母用户名'});
+      this.setState({userNameError: '请输入6到20位数字或字母用户名'});
     }
   }
 
@@ -76,30 +73,21 @@ export default class Register extends Component {
   }
 
   _checkPassword(event) {
-    if (checkPassword(event.target.value)) {
+    if (validPassword(event.target.value)) {
       this.setState({passwordError: ''});
     } else {
       this.setState({passwordError: '请输入6位数字密码'});
     }
   }
 
-  _onConfirmPasswordChange(event) {
+  _onConfirmChange(event) {
     this.setState({
-      confirmPassword: event.target.value,
-      confirmPasswordError: ''
-    });
-  }
-
-  _checkConfirmPassWord(event) {
-    if (checkPassword(event.target.value)) {
-      this.setState({confirmPasswordError: ''});
-    } else {
-      this.setState({confirmPasswordError: ''})
-    }
+      confirmPassword: event.target.value
+    })
   }
 
   _onSubmit() {
-    if (this.state.userName === this.state.password) {
+    if (this.state.confirmPassword === this.state.password) {
       request.post('/api/users')
         .send({
           userName: this.state.userName,
@@ -107,8 +95,7 @@ export default class Register extends Component {
           confirmPassword: this.state.confirmPassword
         })
         .end((err, res) => {
-          if (err) return console.error(err);
-          console.log(res.statusCode);
+          if (err) return alert(res.text);
           alert(res.text);
         })
     } else {

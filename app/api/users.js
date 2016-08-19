@@ -10,10 +10,10 @@ router.post('/', function (req, res, next) {
   if (isEmpty(userData)) {
     return res.status(400)
       .send('用户名和密码不能为空');
-  } else if (!validUserName(userData)) {
+  } else if (!validUserName(userData.userName)) {
     return res.status(400)
       .send('用户名只能是6-20位数字、字母组成');
-  } else if (!validPassword(userData)) {
+  } else if (!validPassword(userData.password)) {
     return res.status(400)
       .send('密码只能是6位数字');
   } else {
