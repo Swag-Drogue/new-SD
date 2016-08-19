@@ -1,10 +1,14 @@
 import mongoose from 'mongoose';
 
 module.exports = {
-  connect: function () {
-    mongoose.connect('mongodb://localhost/new-SD');
+  connect: function (mode, callback) {
+    let url = 'mongodb://localhost/new-SD';
+    if (mode === 'test') {
+      url = 'mongodb://localhost/new-SD-test';
+    }
+    mongoose.connect(url, callback);
   },
-  close: function () {
-    mongoose.connection.close();
+  close: function (callback) {
+    mongoose.connection.close(callback);
   }
 };

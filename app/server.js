@@ -29,7 +29,13 @@ app.use(express.static('./public'));
 
 app.use('/api', apiRouter);
 
-app.listen(3000, function () {
-  db.connect();
-  console.log('Listening on 3000');
-});
+if (require.main === module) {
+  app.listen(3000, function () {
+    db.connect((err) => {
+      if (err) return console.error('db connection failed');
+      console.log('Listening on 3000');
+    });
+  });
+}
+export default app;
+
