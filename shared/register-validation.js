@@ -1,5 +1,5 @@
 function isEmpty(userData) {
-  return (userData.userName === '') || (userData.password === '')
+  return (userData.userName === '') || (userData.password === '');
 }
 
 function validUserName(userName) {

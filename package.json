@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "babel-node app/server.js --ignore 'node_modules/' || exit 0",
+    "lint": "eslint . -c twa-camp-2016 --no-eslintrc || exit 0",
     "test": "jasmine || exit 1"
   },
   "keywords": [],
@@ -46,5 +47,8 @@
     "react-router": "^2.6.1",
     "superagent": "^2.2.0",
     "supertest": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=6.0.0"
   }
 }

@@ -1,3 +1,4 @@
+/*eslint node/no-unpublished-require: "off"*/
 const webpack = require('webpack');
 
 module.exports = {
@@ -11,14 +12,15 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [{
-      test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-        presets: ['es2015', 'react']
-      }
-    },
+    loaders: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015', 'react']
+        }
+      },
       {
         test: /\.css$/,
         exclude: /node_modules/,
@@ -26,23 +28,23 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2)$/,
-        loader: "url-loader?limit=10000&mimetype=application/font-woff"
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff'
       },
       {
         test: /\.ttf$/,
-        loader: "url?limit=10000&mimetype=application/octet-stream"
+        loader: 'url?limit=10000&mimetype=application/octet-stream'
       },
       {
         test: /\.eot$/,
-        loader: "file"
+        loader: 'file'
       },
       {
         test: /\.svg$/,
-        loader: "url?limit=10000&mimetype=image/svg+xml"
+        loader: 'url?limit=10000&mimetype=image/svg+xml'
       },
       {
-        test: require.resolve("jquery"),
-        loader: "expose?$!expose?jQuery"
+        test: require.resolve('jquery'),
+        loader: 'expose?$!expose?jQuery'
       },
       {
         test: /\.(png|jpg)$/,
@@ -58,4 +60,4 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ]
-}
+};

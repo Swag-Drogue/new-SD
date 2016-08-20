@@ -5,7 +5,6 @@ import finish from '../spec/finish';
 import db from '../app/db/db';
 import {User} from '../app/db/schema';
 import async from 'async';
-
 describe('test',() => {
   describe('test true', () => {
     beforeEach((done) => {
