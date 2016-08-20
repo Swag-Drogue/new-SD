@@ -8,6 +8,7 @@ const router = express.Router();
 router.post('/', function (req, res, next) {
   const {userName, password} = req.body;
   const userData = {userName, password};
+  　console.log(userData);
   if (isEmpty(userData)) {
     res.status(400).send('用户名或密码不能为空');
   } else {
