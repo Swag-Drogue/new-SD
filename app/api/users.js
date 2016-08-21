@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 import express from 'express';
 import {User} from '../db/schema';
 import {isEmpty, validUserName, validPassword} from '../../shared/register-validation';
