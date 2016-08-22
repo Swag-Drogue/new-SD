@@ -53,7 +53,7 @@ export default class Login extends Component {
   }
 
   _onSubmit() {
-    request.post('/api/users')
+    request.post('/api/sessions')
       .send({
         userName: this.state.userName,
         password: this.state.password
