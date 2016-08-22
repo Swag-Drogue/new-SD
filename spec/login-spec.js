@@ -4,21 +4,21 @@ import app from '../app/server';
 import finish from '../spec/finish';
 import db from '../app/db/db';
 
-describe('测试', () => {
+describe('测试登录', () => {
   beforeEach((done) => {
-    db.connect('test',finish(done));
+    db.connect('test', finish(done));
   });
   afterEach((done) => {
     db.close(finish(done));
   });
-  describe('测试为真', () => {
-    it('登录成功', (done) => {
-      request(app)
-        .post('/api/sessions')
-        .send({userName: 'nike1996', password: '123456'})
-        .expect(201, '登录成功', finish(done));
-    });
+
+  it('登录成功', (done) => {
+    request(app)
+      .post('/api/sessions')
+      .send({userName: 'nike1996', password: '123456'})
+      .expect(201, '登录成功', finish(done));
   });
+
   describe('提交数据格式不满足要求', () => {
     it('密码为空', (done) => {
       request(app)
