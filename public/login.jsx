@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-import {Link} from  'react-router'
+import {Link,hashHistory} from  'react-router'
 import request from 'superagent'
+
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -59,8 +60,9 @@ export default class Login extends Component {
         password: this.state.password
       })
       .end((err, res) => {
-        if (err) return alert(res.text)
-        alert(res.text)
+        if (err) return alert(res.text);
+        alert(res.text);
+        hashHistory.push('/edit');
       })
 
   }
