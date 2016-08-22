@@ -15,8 +15,9 @@ router.post('/', function (req, res, next) {
       if (user === null) {
         return res.status(401).send('用户名不存在');
       }
-      if (user.password !== password)
+      if (user.password !== userData.password) {
         return res.status(401).send('密码错误');
+      }
       return res.status(201).send('登录成功');
     });
   }
