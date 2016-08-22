@@ -30,6 +30,7 @@
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
     "bootstrap-webpack": "0.0.5",
+    "cookie-parser": "^1.4.3",
     "exports-loader": "^0.6.3",
     "expose-loader": "^0.7.1",
     "express": "^4.14.0",
@@ -45,6 +46,7 @@
     "react-bootstrap": "^0.30.2",
     "react-dom": "^15.3.0",
     "react-router": "^2.6.1",
+    "sha1": "^1.1.1",
     "superagent": "^2.2.0",
     "supertest": "^2.0.0"
   },

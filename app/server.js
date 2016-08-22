@@ -7,9 +7,11 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import apiRouter from './api/api';
 import db from './db/db';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cookieParser());
 const compiler = webpack(webpackConfig);
 
 app.use(webpackDevMiddleware(compiler, {
