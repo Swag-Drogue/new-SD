@@ -19,7 +19,6 @@ router.get('/', function (req, res) {
 function generateInfo(userName, password) {
   return userName + ':' + sha1(password);
 }
-
 function validateInfo(info, callback) {
   if (info === null || info.length === 0 || !info.includes(':')) {
     callback(null, false);
@@ -33,12 +32,10 @@ function validateInfo(info, callback) {
     }
   });
 }
-
 function getUsernameFromInfo(info) {
   const index = _.indexOf(info, ':');
   return info.substring(0, index);
 }
-
 function findUser(userName, callback) {
   User.findOne({userName}, function (err, user) {
     if (err) return next(err);
