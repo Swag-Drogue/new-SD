@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import request from 'superagent';
+import {Link} from  'react-router'
 import {validUserName, validPassword} from '../shared/register-validation.js';
 export default class Register extends Component {
   constructor(props) {
@@ -18,7 +19,8 @@ export default class Register extends Component {
       <div className="register-body">
         <div className="enter-form">
           <span className="register"> 注册Swag Drogue  </span>
-          <span className="login-in"> 登录</span>
+          <span className="login-in"><Link to="/login">登录</Link></span>
+
         </div>
         <div className="enter-button">
           <ul>
