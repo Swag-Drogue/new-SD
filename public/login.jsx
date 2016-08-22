@@ -23,13 +23,10 @@ export default class Login extends Component {
               <li className="edit-lines"><img src="images/reg.png"/>
                 <input type="text" className="register-name"
                        onChange={this._onUserNameChange.bind(this)}/>
-                <span>{this.state.userName}</span>
               </li>
               <li className="edit-lines"><img src="images/key.png"/>
                 <input type="password" className="register-password"
                        onChange={this._onPasswordChange.bind(this)}/>
-                <span>{this.state.password}</span>
-
               </li>
             </ul>
             <div className="button">
@@ -54,14 +51,15 @@ export default class Login extends Component {
       password: event.target.value
     })
   }
-  _onSubmit(){
+
+  _onSubmit() {
     request.post('/api/users')
       .send({
-        userName:this.state.userName,
-        password:this.state.password
+        userName: this.state.userName,
+        password: this.state.password
       })
-      .end((err,res) => {
-        if(err) return alert(res.text)
+      .end((err, res) => {
+        if (err) return alert(res.text)
         alert(res.text)
       })
 
