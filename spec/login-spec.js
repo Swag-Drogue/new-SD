@@ -19,7 +19,7 @@ describe('测试', () => {
         .expect(201, '登录成功', finish(done));
     });
   });
-  describe('不能成功登录', () => {
+  describe('提交数据格式不满足要求', () => {
     it('密码为空', (done) => {
       request(app)
         .post('/api/sessions')
@@ -33,7 +33,7 @@ describe('测试', () => {
         .expect(400, '用户名或密码不能为空', finish(done));
     });
   });
-  describe('提交数据格式不正确', () => {
+  describe('不能成功登录', () => {
     it('用户名不正确', (done) => {
       request(app)
         .post('/api/sessions')
