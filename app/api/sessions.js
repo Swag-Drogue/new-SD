@@ -2,6 +2,7 @@
 import express from 'express';
 import {User} from '../db/schema';
 import {isEmpty} from '../../shared/register-validation';
+import sha1 from 'sha1';
 
 const router = express.Router();
 router.post('/', function (req, res, next) {
@@ -18,9 +19,13 @@ router.post('/', function (req, res, next) {
       if (user.password !== userData.password) {
         return res.status(401).send('密码错误');
       }
+      res.cookie('token', generateToken(userData.username, userData.password));
       return res.status(201).send('登录成功');
     });
   }
 });
+function generateToken(username, password) {
+  return username + ':' + sha1(password);
+}
 
 export default router;
