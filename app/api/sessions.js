@@ -19,13 +19,13 @@ router.post('/', function (req, res, next) {
       if (user.password !== userData.password) {
         return res.status(401).send('密码错误');
       }
-      res.cookie('token', generateToken(userData.username, userData.password));
+      res.cookie('token', generateToken(userData.userName, userData.password));
       return res.status(201).send('登录成功');
     });
   }
 });
-function generateToken(username, password) {
-  return username + ':' + sha1(password);
+function generateToken(userName, password) {
+  return userName + ':' + sha1(password);
 }
 
 export default router;
