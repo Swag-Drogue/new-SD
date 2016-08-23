@@ -5,7 +5,6 @@ import {isEmpty} from '../../shared/register-validation';
 import sha1 from 'sha1';
 
 const router = express.Router();
-
 router.post('/', function (req, res, next) {
   const {userName, password} = req.body;
   const userData = {userName, password};
@@ -20,7 +19,7 @@ router.post('/', function (req, res, next) {
       if (user.password !== userData.password) {
         return res.status(401).send('密码错误');
       }
-      res.cookie('token', generateInfo(userData.userName, userData.password),{expires: new Date(Date.now() + 900000)});
+      res.cookie('token', generateToken(userData.userName, userData.password));
       return res.status(201).send('登录成功');
     });
   }
