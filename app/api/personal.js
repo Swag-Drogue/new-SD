@@ -5,7 +5,7 @@ import sha1 from 'sha1';
 import _ from 'lodash';
 
 const router = express();
-router.get('/', function (req, res) {
+router.get('/', function (req, res,next) {
   const token = req.cookies['token'];
   validateToken(token, function (err, hasToken) {
     if (err) return next(err);
@@ -13,7 +13,7 @@ router.get('/', function (req, res) {
       return res.sendStatus(201);
     }
     return res.sendStatus(401);
-  })
+  });
 });
 
 function generateToken(userName, password) {
@@ -25,9 +25,9 @@ function validateToken(token, callback) {
   }
   const userName = getUsernameFromToken(token);
   findUser(userName, function (err, user) {
-    if (err) return next(err);
+    if (err)  console.log(err);
     if (user) {
-      const {userName, password}=user;
+      const {userName, password} = user;
       callback(null, generateToken(userName, password) === token);
     }
   });
@@ -38,9 +38,9 @@ function getUsernameFromToken(token) {
 }
 function findUser(userName, callback) {
   User.findOne({userName}, function (err, user) {
-    if (err) return next(err);
+    if (err) console.log(err);
     callback(null, user);
-  })
+  });
 }
 
 export default router;
