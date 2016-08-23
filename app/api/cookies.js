@@ -1,20 +1,8 @@
 'use strict';
-import express from 'express';
 import {User} from '../db/schema';
 import sha1 from 'sha1';
 import _ from 'lodash';
 
-const router = express();
-router.get('/', function (req, res,next) {
-  const token = req.cookies['token'];
-  validateToken(token, function (err, hasToken) {
-    if (err) return next(err);
-    if (hasToken) {
-      return res.sendStatus(201);
-    }
-    return res.sendStatus(401);
-  });
-});
 
 function generateToken(userName, password) {
   return userName + ':' + sha1(password);
@@ -43,5 +31,5 @@ function findUser(userName, callback) {
   });
 }
 
-export default router;
+export default validateToken;
 

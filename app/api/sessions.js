@@ -2,6 +2,7 @@
 import express from 'express';
 import {User} from '../db/schema';
 import {isEmpty} from '../../shared/register-validation';
+import validateToken from './cookies';
 import sha1 from 'sha1';
 
 const router = express.Router();
@@ -26,6 +27,18 @@ router.post('/', function (req, res, next) {
     });
   }
 });
+
+router.get('/current', function (req, res,next) {
+  const token = req.cookies['token'];
+  validateToken(token, function (err,validToken) {
+    if (err) return next(err);
+    if (validToken) {
+      return res.sendStatus(201);
+    }
+    return res.sendStatus(403);
+  });
+});
+
 function generateToken(userName, password) {
   return userName + ':' + sha1(password);
 }
