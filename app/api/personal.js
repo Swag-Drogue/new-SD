@@ -6,8 +6,8 @@ import _ from 'lodash';
 
 const router = express();
 router.get('/', function (req, res) {
-  const info = req.cookies['info'];
-  validateInfo(info, function (err, hasToken) {
+  const token = req.cookies['token'];
+  validateToken(token, function (err, hasToken) {
     if (err) return next(err);
     if (hasToken) {
       return res.sendStatus(201);
@@ -16,25 +16,25 @@ router.get('/', function (req, res) {
   })
 });
 
-function generateInfo(userName, password) {
+function generateToken(userName, password) {
   return userName + ':' + sha1(password);
 }
-function validateInfo(info, callback) {
-  if (info === null || info.length === 0 || !info.includes(':')) {
+function validateToken(token, callback) {
+  if (token === null || token.length === 0 || !token.includes(':')) {
     callback(null, false);
   }
-  const userName = getUsernameFromInfo(info);
+  const userName = getUsernameFromToken(token);
   findUser(userName, function (err, user) {
     if (err) return next(err);
     if (user) {
       const {userName, password}=user;
-      callback(null, generateInfo(userName, password) === info);
+      callback(null, generateToken(userName, password) === token);
     }
   });
 }
-function getUsernameFromInfo(info) {
-  const index = _.indexOf(info, ':');
-  return info.substring(0, index);
+function getUsernameFromToken(token) {
+  const index = _.indexOf(token, ':');
+  return token.substring(0, index);
 }
 function findUser(userName, callback) {
   User.findOne({userName}, function (err, user) {
