@@ -19,7 +19,9 @@ router.post('/', function (req, res, next) {
       if (user.password !== userData.password) {
         return res.status(401).send('密码错误');
       }
-      res.cookie('token', generateToken(userData.userName, userData.password));
+      res.cookie('token', generateToken(userData.userName, userData.password), {
+        expires: new Date(Date.now() + 900000)
+      });
       return res.status(201).send('登录成功');
     });
   }
