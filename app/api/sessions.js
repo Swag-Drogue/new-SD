@@ -28,9 +28,9 @@ router.post('/', function (req, res, next) {
   }
 });
 
-router.get('/current', function (req, res,next) {
+router.get('/current', function (req, res, next) {
   const token = req.cookies['token'];
-  validateToken(token, function (err,validToken) {
+  validateToken(token, function (err, validToken) {
     if (err) return next(err);
     if (validToken) {
       return res.sendStatus(201);
