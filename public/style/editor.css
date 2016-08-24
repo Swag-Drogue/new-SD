@@ -11,7 +11,7 @@ body {
     height: 85px;
     font-size: 24px;
     line-height: 85px;
-    background-color: rgb(18,18,18);
+    background-color: rgb(18, 18, 18);
     position: fixed;
     top: 0;
     left: 0;
@@ -32,10 +32,10 @@ body {
 
 .login li a:hover, .login li a:active {
     text-decoration: none;
-    color: rgb(191,177,153);
+    color: rgb(191, 177, 153);
 }
 
-.SD-logo{
+.SD-logo {
     float: left;
     margin-left: 50px;
     width: 80px;
@@ -59,7 +59,7 @@ body {
 
 .menu li a:hover, .menu li a:active {
     text-decoration: none;
-    color: rgb(191,177,153);
+    color: rgb(191, 177, 153);
 }
 
 .wrapper {
@@ -102,20 +102,12 @@ body {
     float: right;
     margin-top: 20px;
 }
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: "Microsoft YaHei";
-}
 
 .top-header {
     height: 85px;
     font-size: 24px;
     line-height: 85px;
-    background-color: rgb(18,18,18);
+    background-color: rgb(18, 18, 18);
     position: fixed;
     top: 0;
     left: 0;
@@ -136,10 +128,10 @@ body {
 
 .login li a:hover, .login li a:active {
     text-decoration: none;
-    color: rgb(191,177,153);
+    color: rgb(191, 177, 153);
 }
 
-.SD-logo{
+.SD-logo {
     float: left;
     margin-left: 50px;
     width: 80px;
@@ -163,7 +155,7 @@ body {
 
 .menu li a:hover, .menu li a:active {
     text-decoration: none;
-    color: rgb(191,177,153);
+    color: rgb(191, 177, 153);
 }
 
 .wrapper {
@@ -206,6 +198,7 @@ body {
     float: right;
     margin-top: 20px;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -219,7 +212,7 @@ body {
     height: 85px;
     font-size: 24px;
     line-height: 85px;
-    background-color: rgb(18,18,18);
+    background-color: rgb(18, 18, 18);
     position: fixed;
     top: 0;
     left: 0;
@@ -240,10 +233,10 @@ body {
 
 .login li a:hover, .login li a:active {
     text-decoration: none;
-    color: rgb(191,177,153);
+    color: rgb(191, 177, 153);
 }
 
-.SD-logo{
+.SD-logo {
     float: left;
     margin-left: 50px;
     width: 80px;
@@ -267,7 +260,7 @@ body {
 
 .menu li a:hover, .menu li a:active {
     text-decoration: none;
-    color: rgb(191,177,153);
+    color: rgb(191, 177, 153);
 }
 
 .wrapper {
@@ -317,29 +310,25 @@ body {
     margin-top: 9px;
 }
 
-.submit-picture{
+.submit-picture {
     float: left;
     margin-left: 20px;
     margin-top: 9px;
 }
 
-.comment-pic-upd{
+.comment-pic-upd {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 100;
     width: 58px;
     height: 58px;
-    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
-    filter:alpha(opacity=0);
-    -moz-opacity:0;
-    -khtml-opacity: 0;
-    opacity:0;
     background: none;
     border: none;
     cursor: pointer;
 }
-.button{
-margin-left: 1px;
-    margin-bottom:50px;
+
+.button {
+    margin-left: 1px;
+    margin-bottom: 50px;
 }

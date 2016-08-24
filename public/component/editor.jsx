@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {hashHistory} from 'react-router';
 import request from 'superagent'
 import _ from 'lodash';
 
@@ -6,10 +7,10 @@ export default class Editor extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      author: '',
       title: '',
       selectedImage: null,
-      article: '',
-      author:'',
+      paragraph: '',
       uploadedImages: []
     }
   }
@@ -26,11 +27,17 @@ export default class Editor extends Component {
             return alert(err);
           }
         }
+        return this.setState({
+          author: res.text
+        })
       });
   }
 
   render() {
     return <div className="wrapper container-fluid">
+      <div>
+        {this.state.author}
+      </div>
       <form onSubmit={this._onImgUpload.bind(this)}>
         <div className="form-group">
           <label htmlFor="images">图片</label>
@@ -82,7 +89,7 @@ export default class Editor extends Component {
     const formData = new FormData();
     formData.append('image', this.state.selectedImage);
 
-    request.post('/api/uploaded-images')
+    request.post('/api/uploadedImages')
       .send(formData)
       .end((err, res) => {
         if (err) return alert('uploading failed!');

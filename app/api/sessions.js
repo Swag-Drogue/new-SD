@@ -2,7 +2,7 @@
 import express from 'express';
 import {User} from '../db/schema';
 import {isEmpty} from '../../shared/register-validation';
-import validateToken from './cookies';
+import {validateToken, getUsernameFromToken} from './cookies';
 import sha1 from 'sha1';
 
 const router = express.Router();
@@ -21,7 +21,7 @@ router.post('/', function (req, res, next) {
         return res.status(401).send('密码错误');
       }
       res.cookie('token', generateToken(userData.userName, userData.password), {
-        expires: new Date(Date.now() + 900000)
+        expires: new Date(Date.now() + 10000)
       });
       return res.status(201).send('登录成功');
     });
@@ -33,7 +33,8 @@ router.get('/current', function (req, res, next) {
   validateToken(token, function (err, validToken) {
     if (err) return next(err);
     if (validToken) {
-      return res.sendStatus(201);
+      const userName = getUsernameFromToken(token);
+      return res.status(201).send(userName);
     }
     return res.sendStatus(403);
   });

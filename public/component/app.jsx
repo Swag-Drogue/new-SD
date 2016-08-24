@@ -1,8 +1,8 @@
 import React from 'react';
 import MenuList from './menu-list.jsx';
 
-export default class App extends React.Component{
-  render(){
+export default class App extends React.Component {
+  render() {
     return (
       <div>
         <MenuList/>
