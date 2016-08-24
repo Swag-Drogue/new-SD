@@ -33,5 +33,8 @@ function findUser(userName, callback) {
   });
 }
 
-export default validateToken;
+export {
+  validateToken,
+  getUsernameFromToken
+};
 

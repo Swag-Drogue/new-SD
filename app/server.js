@@ -5,6 +5,7 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import express from 'express';
 import bodyParser from 'body-parser';
+import fileUpload from 'express-fileupload';
 import apiRouter from './api/api';
 import db from './db/db';
 import cookieParser from 'cookie-parser';
@@ -12,6 +13,7 @@ import cookieParser from 'cookie-parser';
 const app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(fileUpload());
 const compiler = webpack(webpackConfig);
 
 app.use(webpackDevMiddleware(compiler, {
