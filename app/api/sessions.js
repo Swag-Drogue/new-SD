@@ -2,6 +2,7 @@
 import express from 'express';
 import {User} from '../db/schema';
 import {isEmpty} from '../../shared/register-validation';
+import validateToken from './cookies';
 import sha1 from 'sha1';
 
 const router = express.Router();
@@ -19,11 +20,25 @@ router.post('/', function (req, res, next) {
       if (user.password !== userData.password) {
         return res.status(401).send('密码错误');
       }
-      res.cookie('token', generateToken(userData.userName, userData.password));
+      res.cookie('token', generateToken(userData.userName, userData.password), {
+        expires: new Date(Date.now() + 900000)
+      });
       return res.status(201).send('登录成功');
     });
   }
 });
+
+router.get('/current', function (req, res, next) {
+  const token = req.cookies['token'];
+  validateToken(token, function (err, validToken) {
+    if (err) return next(err);
+    if (validToken) {
+      return res.sendStatus(201);
+    }
+    return res.sendStatus(403);
+  });
+});
+
 function generateToken(userName, password) {
   return userName + ':' + sha1(password);
 }

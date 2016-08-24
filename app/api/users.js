@@ -22,7 +22,6 @@ router.post('/', function (req, res, next) {
       if (user !== null) {
         return res.status(409)
           .send('该用户已存在');
-
       }
       new User(userData).save((err)=> {
         if (err) return next(err);
@@ -30,9 +29,7 @@ router.post('/', function (req, res, next) {
           .send('注册成功');
       });
     });
-
   }
 });
-
 
 export default router;
