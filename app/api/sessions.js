@@ -21,7 +21,7 @@ router.post('/', function (req, res, next) {
         return res.status(401).send('密码错误');
       }
       res.cookie('token', generateToken(userData.userName, userData.password), {
-        expires: new Date(Date.now() + 10000)
+        expires: new Date(Date.now() + 900000)
       });
       return res.status(201).send('登录成功');
     });

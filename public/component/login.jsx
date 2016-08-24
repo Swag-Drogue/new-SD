@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Link,hashHistory} from  'react-router'
+import {Link, hashHistory} from  'react-router'
 import request from 'superagent'
 
 export default class Login extends Component {

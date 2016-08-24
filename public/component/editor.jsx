@@ -35,14 +35,11 @@ export default class Editor extends Component {
 
   render() {
     return <div className="wrapper container-fluid">
-      <div>
-        {this.state.author}
-      </div>
       <form onSubmit={this._onImgUpload.bind(this)}>
         <div className="form-group">
           <label htmlFor="images">图片</label>
           <div>
-            {this.state.uploadedImages.map((i, index) => <img key={index} src={i}/>)}
+            {this.state.uploadedImages.map((i, index) => <img className="img-responsive" key={index} src={i}/>)}
             {/*加上key对应uploadedmagdes数组里的图片*/}
           </div>
           <input type="file" id="images" accept=".jpg,.jpeg,.png,.gif"
@@ -62,7 +59,7 @@ export default class Editor extends Component {
         <div className="form-group">
           <label htmlFor="name">文本框</label>
           <textarea className="form-control" rows="3"
-                    value={this.state.article}
+                    value={this.state.paragraph}
                     onChange={this._onArticleChange.bind(this)}/>
         </div>
         <button className="btn btn-default btn-right" type="submit">提交</button>
@@ -102,7 +99,7 @@ export default class Editor extends Component {
 
   _onArticleChange(event) {
     this.setState({
-      article: event.target.value
+      paragraph: event.target.value
     });
   }
 
@@ -110,8 +107,9 @@ export default class Editor extends Component {
     event.preventDefault();
     request.post('/api/articles')
       .send({
+        author:this.state.author,
         title: this.state.title,
-        article: this.state.article,
+        paragraph: this.state.paragraph,
         images: this.state.uploadedImages
       })
       .end((err, res)=> {

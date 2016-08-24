@@ -5,8 +5,8 @@ import {Articles} from '../db/schema';
 const router = express.Router();
 
 router.post('/', function (req, res) {
-  const {title, paragraph, images} = req.body;
-  const articleData = {title, paragraph, images};
+  const {author, title, paragraph, images} = req.body;
+  const articleData = {author, title, paragraph, images};
 
   new Articles(articleData).save((err)=> {
     if (err) return res.status(401).send('error');
