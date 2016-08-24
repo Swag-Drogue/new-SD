@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link,hashHistory} from 'react-router';
+import {Link, hashHistory} from 'react-router';
 import request from 'superagent';
 
 class MenuList extends React.Component {
@@ -17,26 +17,26 @@ class MenuList extends React.Component {
       .get('/api/sessions/current')
       .end((err, res) => {
         if (err) {
-          if (res.statusCode === 401) {
+          if (res.statusCode === 403) {
             return this.setState({
-              login: '登陆',
+              login: '登录',
               register: '注册',
-              exit:''
+              exit: ''
             });
-          } else{
+          } else {
             alert('cookie已过期，请重新登录');
             hashHistory.push('/login');
             return this.setState({
-              login: '登陆',
+              login: '登录',
               register: '注册',
-              exit:''
+              exit: ''
             });
           }
         }
         return this.setState({
           exit: '退出',
-          login:'',
-          register:''
+          login: '',
+          register: ''
         });
       });
   }
@@ -53,22 +53,31 @@ class MenuList extends React.Component {
         </ul>
         <div className="login">
           <ul className="list-inline">
-            <li><Link to="/login">{this.state.login}</Link></li>
-            <li><Link to="/register">{this.state.register}</Link></li>
-            <li><Link to="/edit">编辑博文</Link></li>
-            <li><Link to="" onClick={this._logOut.bind(this)}>{this.state.exit}</Link></li>
+            <li><Link to="/login">
+              {
+                this.state.login
+                  ? <li><Link to="/login">登录</Link></li>
+                  : <span></span>
+              }
+            </Link></li>
+            <li><Link to="/register">{
+              this.state.register
+                ? <li><Link to="/edit">编辑博文</Link></li>
+                : <span></span>
+            }</Link></li>
+            {/*<li><Link to="" onClick={this._logOut.bind(this)}>{this.state.exit}</Link></li>*/}
           </ul>
         </div>
       </header>
     )
   }
 
-  _logOut(){
+  _logOut() {
     request
       .get('/api/logOut')
-      .end((err,res)=> {
+      .end((err, res)=> {
         if (err) return err;
-        if(res.statusCode===200){
+        if (res.statusCode === 200) {
           this.setState({
             exit: '',
             login: '登录',

@@ -86,7 +86,7 @@ export default class Editor extends Component {
     const formData = new FormData();
     formData.append('image', this.state.selectedImage);
 
-    request.post('/api/uploadedImages')
+    request.post('/api/uploaded-images')
       .send(formData)
       .end((err, res) => {
         if (err) return alert('uploading failed!');

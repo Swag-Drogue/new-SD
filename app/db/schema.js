@@ -15,10 +15,10 @@ const articleSchema = new Schema({
 });
 
 const User = mongoose.model('User', userSchema);
-const Articles = mongoose.model('Articles', articleSchema);
+const Article = mongoose.model('Article', articleSchema);
 
 export {
   User,
-  Articles
+  Article
 };
 
