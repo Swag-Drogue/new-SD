@@ -33,17 +33,6 @@ export default class Editor extends Component {
 
   render() {
     return <div className="wrapper container-fluid">
-      <form onSubmit={this._onImgUpload.bind(this)}>
-        <div className="form-group">
-          <label htmlFor="images">图片</label>
-          <div>
-            {this.state.uploadedImages.map(i => <img className="img-responsive" key={i} src={i}/>)}
-          </div>
-          <input type="file" id="images" accept=".jpg,.jpeg,.png,.gif"
-                 onChange={(e)=>this._handleImageChange(e)}/>
-          <input type="submit" value='上传图片' onSubmit={this._onImgUpload.bind(this)}/>
-        </div>
-      </form>
       <form onSubmit={this._onSubmit.bind(this)}>
         <div className="form-group">
           <label htmlFor="title">标题</label>
@@ -52,7 +41,17 @@ export default class Editor extends Component {
                  onChange={this._onTitleChange.bind(this)}
                  required="true"/>
         </div>
-
+        <div>
+          <div className="form-group">
+            <label htmlFor="images">图片</label>
+            <div>
+              {this.state.uploadedImages.map(i => <img className="img-responsive" key={i} src={i}/>)}
+            </div>
+            <input type="file" id="images" className="btn btn-default" accept=".jpg,.jpeg,.png,.gif"
+                   onChange={(e)=>this._handleImageChange(e)}/>
+            <input type="button" className="btn btn-default" value='上传图片' onClick={this._onImgUpload.bind(this)}/>
+          </div>
+        </div>
         <div className="form-group">
           <label htmlFor="name">文本框</label>
           <textarea className="form-control" rows="3"
@@ -78,7 +77,6 @@ export default class Editor extends Component {
   }
 
   _onImgUpload(event) {
-    event.preventDefault();
 
     const formData = new FormData();
     formData.append('image', this.state.selectedImage);

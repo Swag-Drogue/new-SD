@@ -26,10 +26,8 @@ class MenuList extends React.Component {
     request
       .delete('/api/sessions')
       .end((err, res)=> {
-        if (err) return err;
-        if (res.statusCode === 200) {
-          hashHistory.push('/index');
-        }
+        if (err) alert(err);
+        hashHistory.push('/index');
       });
   }
 }
