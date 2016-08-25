@@ -40,7 +40,7 @@ router.get('/current', function (req, res, next) {
   });
 });
 
-router.delete('/', function (req, res) {
+router.delete('/current', function (req, res) {
   res.cookie('token','').sendStatus(200);
 });
 

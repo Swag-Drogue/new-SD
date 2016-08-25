@@ -24,7 +24,7 @@ class MenuList extends React.Component {
 
   _logOut() {
     request
-      .delete('/api/sessions')
+      .delete('/api/sessions/current')
       .end((err, res)=> {
         if (err) alert(err);
         hashHistory.push('/index');
