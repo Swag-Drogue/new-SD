@@ -8,7 +8,7 @@ function generateToken(userName, password) {
 }
 
 function validateToken(token, callback) {
-  if (token === null || token.length === 0 || !token.includes(':')) {
+  if (token === null || token === undefined || token.length === 0 || !token.includes(':')) {
     return callback(null, false);
   }
   const userName = getUsernameFromToken(token);

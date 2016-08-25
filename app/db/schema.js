@@ -10,7 +10,7 @@ const userSchema = new Schema({
 const articleSchema = new Schema({
   author: String,
   title: String,
-  paragraph: String,
+  content: String,
   images: [String]
 });
 
