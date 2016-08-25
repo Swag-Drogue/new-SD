@@ -23,9 +23,6 @@ export default class Editor extends Component {
           if (res.statusCode === 403) {
             alert('请先登录！');
             return hashHistory.push('/login');
-          } else {
-            alert('cookie已过期，请重新登录。');
-            return hashHistory.push('/login');
           }
         }
         return this.setState({
@@ -40,7 +37,7 @@ export default class Editor extends Component {
         <div className="form-group">
           <label htmlFor="images">图片</label>
           <div>
-            {this.state.uploadedImages.map((i, index) => <img className="img-responsive" key={index} src={i}/>)}
+            {this.state.uploadedImages.map(i => <img className="img-responsive" key={i} src={i}/>)}
           </div>
           <input type="file" id="images" accept=".jpg,.jpeg,.png,.gif"
                  onChange={(e)=>this._handleImageChange(e)}/>
