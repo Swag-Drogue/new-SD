@@ -6,7 +6,9 @@ class MenuList extends React.Component {
   render() {
     return (
       <header className="top-header">
+        <Link to="/index">
         <img className="img-responsive img-circle SD-logo" src="../images/SD_logo.png"/>
+          </Link>
         <ul className="list-inline menu">
           <li><Link to="/index">首页</Link></li>
           <li><Link to="/edit">编辑博文</Link></li>

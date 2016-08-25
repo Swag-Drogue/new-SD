@@ -9,9 +9,6 @@ import ShareArticle from './component/personal-share.jsx';
 import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 import 'jquery';
 import 'bootstrap-webpack';
-import './style/register.css';
-import './style/login.css';
-import './style/editor.css';
 
 const route = <Router history={hashHistory}>
   <Route path="/" component={App}>

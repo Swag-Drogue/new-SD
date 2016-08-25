@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {hashHistory} from 'react-router';
 import request from 'superagent'
 import _ from 'lodash';
+import '../style/editor.css';
 
 export default class Editor extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ export default class Editor extends Component {
             </div>
             <input type="file" id="images" className="btn btn-default" accept=".jpg,.jpeg,.png,.gif"
                    onChange={(e)=>this._handleImageChange(e)}/>
-            <input type="button" className="btn btn-default" value='上传图片' onClick={this._onImgUpload.bind(this)}/>
+            <input type="edit-button" className="btn btn-default" value='上传图片' onClick={this._onImgUpload.bind(this)}/>
           </div>
         </div>
         <div className="form-group">
