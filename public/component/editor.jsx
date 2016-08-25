@@ -114,8 +114,7 @@ export default class Editor extends Component {
       })
       .end((err, res)=> {
         if (err) return alert(res.text);
-        const url = ('/share/:' + res.text.substring(1, res.text.length - 1));
-        return hashHistory.push(url);
+        return hashHistory.push('/share/:' + res.text);
       });
   }
 }
