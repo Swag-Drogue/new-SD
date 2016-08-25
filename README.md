@@ -20,6 +20,13 @@ npm install -g eslint-config-twa-camp-2016
 npm install
 ```
 
+Use mongodb
+-----------
+```
+mkdir /tmp/new-SD
+mongod --dbpath /tmp/new-SD
+```
+
 Init db
 -------
 ```
