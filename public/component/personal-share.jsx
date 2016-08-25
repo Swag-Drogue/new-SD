@@ -8,7 +8,7 @@ export default class ShareArticle extends Component {
       author: '',
       title: '',
       images: [],
-      article: '',
+      content: '',
     }
   }
 
@@ -21,7 +21,7 @@ export default class ShareArticle extends Component {
           author: res.body.author,
           title: res.body.title,
           images: res.body.images,
-          article: res.body.article
+          content: res.body.content
         })
       })
   }
@@ -34,7 +34,7 @@ export default class ShareArticle extends Component {
         <div>
           {this.state.images.map((i, index) => <img className="img-responsive" key={index} src={i}/>)}
         </div>
-        <p>{this.state.article}</p>
+        <p>{this.state.content}</p>
       </div>
     </div>
   }

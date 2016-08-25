@@ -1,3 +1,4 @@
+/*eslint no-console: "off"*/
 import db from '../app/db/db';
 import async from 'async';
 import {User, Article} from '../app/db/schema';

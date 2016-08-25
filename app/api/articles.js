@@ -5,15 +5,12 @@ import {Article} from '../db/schema';
 const router = express.Router();
 
 router.post('/', function (req, res, next) {
-  const {author, title, article, images} = req.body;
-  const articleData = {author, title, article, images};
+  const {author, title, content, images} = req.body;
+  const articleData = {author, title, content, images};
 
-  new Article(articleData).save((err)=> {
-    if (err) return res.status(500).send('error');
-    Article.findOne(articleData, function (err, article) {
-      if (err) return next(err);
-      return res.status(201).send(article._id);
-    });
+  new Article(articleData).save((err, saved)=> {
+    if (err) return next(err);
+    return res.status(201).send(saved);
   });
 });
 
@@ -25,7 +22,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/:id', function (req, res, next) {
-  const articleId = req.params.id.substring(1);
+  const articleId = req.params.id;
   Article.findOne({_id: articleId}, function (err, article) {
     if (err) return next(err);
     return res.status(200).json(article);

@@ -10,7 +10,7 @@ export default class Editor extends Component {
       author: '',
       title: '',
       selectedImage: null,
-      article: '',
+      content: '',
       uploadedImages: []
     }
   }
@@ -59,7 +59,7 @@ export default class Editor extends Component {
         <div className="form-group">
           <label htmlFor="name">文本框</label>
           <textarea className="form-control" rows="3"
-                    value={this.state.article}
+                    value={this.state.content}
                     onChange={this._onArticleChange.bind(this)}/>
         </div>
         <button className="btn btn-default btn-right" type="submit">提交</button>
@@ -99,7 +99,7 @@ export default class Editor extends Component {
 
   _onArticleChange(event) {
     this.setState({
-      article: event.target.value
+      content: event.target.value
     });
   }
 
@@ -109,12 +109,12 @@ export default class Editor extends Component {
       .send({
         author: this.state.author,
         title: this.state.title,
-        article: this.state.article,
+        content: this.state.content,
         images: this.state.uploadedImages
       })
       .end((err, res)=> {
         if (err) return alert(res.text);
-        return hashHistory.push('/share/:' + res.text);
+        return hashHistory.push('/share/' + res.body._id);
       });
   }
 }

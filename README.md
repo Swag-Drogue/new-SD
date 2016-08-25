@@ -18,6 +18,17 @@ npm install -g babel-cli
 npm install -g eslint
 npm install -g eslint-config-twa-camp-2016
 npm install
+```
+
+Init db
+-------
+```
+npm run init-db
+```
+
+Run the project
+---------------
+```
 npm start
 ```
 

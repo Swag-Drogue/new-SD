@@ -20,10 +20,9 @@ router.post('/', function (req, res, next) {
       if (user.password !== userData.password) {
         return res.status(401).send('密码错误');
       }
-      res.cookie('token', generateToken(userData.userName, userData.password),
-        {
-          expires: new Date(Date.now() + 900000)
-        });
+      res.cookie('token', generateToken(userData.userName, userData.password), {
+        expires: new Date(Date.now() + 900000)
+      });
       return res.status(201).send('登录成功');
     });
   }
@@ -31,9 +30,6 @@ router.post('/', function (req, res, next) {
 
 router.get('/current', function (req, res, next) {
   const token = req.cookies['token'];
-  if (token === undefined) {
-    return res.sendStatus(500);
-  }
   validateToken(token, function (err, validToken) {
     if (err) return next(err);
     if (validToken) {
@@ -42,6 +38,11 @@ router.get('/current', function (req, res, next) {
     }
     return res.sendStatus(403);
   });
+});
+
+router.get('/', function (req, res) {
+  res.cookie('token');
+  return res.sendStatus(200);
 });
 
 function generateToken(userName, password) {
