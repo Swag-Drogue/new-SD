@@ -47,14 +47,14 @@ export default class Editor extends Component {
             <div>
               {this.state.uploadedImages.map(i => <img className="img-responsive" key={i} src={i}/>)}
             </div>
-            <input type="file" id="images" className="btn btn-default" accept=".jpg,.jpeg,.png,.gif"
+            <input type="file" id="images" className="btn btn-default" required="true" accept=".jpg,.jpeg,.png,.gif"
                    onChange={(e)=>this._handleImageChange(e)}/>
             <input type="button" className="btn btn-default" value='上传图片' onClick={this._onImgUpload.bind(this)}/>
           </div>
         </div>
         <div className="form-group">
           <label htmlFor="name">文本框</label>
-          <textarea className="form-control" rows="3"
+          <textarea className="form-control" rows="3" required="true"
                     value={this.state.content}
                     onChange={this._onArticleChange.bind(this)}/>
         </div>
