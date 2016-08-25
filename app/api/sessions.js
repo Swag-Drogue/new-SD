@@ -40,9 +40,8 @@ router.get('/current', function (req, res, next) {
   });
 });
 
-router.get('/', function (req, res) {
-  res.cookie('token');
-  return res.sendStatus(200);
+router.delete('/', function (req, res) {
+  res.cookie('token','').sendStatus(200);
 });
 
 function generateToken(userName, password) {

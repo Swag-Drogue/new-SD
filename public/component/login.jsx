@@ -13,7 +13,7 @@ export default class Login extends Component {
 
   render() {
     return (
-      <form>
+      <form onSubmit={this._onSubmit.bind(this)}>
         <div className="login-body">
           <div className="enter-form">
             <span className="register"> 登录Swag Drogue  </span>
@@ -31,7 +31,7 @@ export default class Login extends Component {
               </li>
             </ul>
             <div className="button">
-              <button className="btn btn-primary" type="submit" onClick={this._onSubmit.bind(this)}>
+              <button className="btn btn-primary" type="submit">
                 登&nbsp;&nbsp;&nbsp;&nbsp;录
               </button>
             </div>
@@ -53,7 +53,8 @@ export default class Login extends Component {
     })
   }
 
-  _onSubmit() {
+  _onSubmit(event) {
+    event.preventDefault();
     request.post('/api/sessions')
       .send({
         userName: this.state.userName,

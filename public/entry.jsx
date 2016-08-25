@@ -15,7 +15,7 @@ import './style/editor.css';
 
 const route = <Router history={hashHistory}>
   <Route path="/" component={App}>
-    <IndexRoute component={Editor}/>
+    <IndexRoute component={Index}/>
     <Route path='index' component={Index}/>
     <Route path='register' component={Register}/>
     <Route path='share/:id' component={ShareArticle}/>

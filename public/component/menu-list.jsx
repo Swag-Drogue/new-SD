@@ -24,7 +24,7 @@ class MenuList extends React.Component {
 
   _logOut() {
     request
-      .get('/api/sessions')
+      .delete('/api/sessions')
       .end((err, res)=> {
         if (err) return err;
         if (res.statusCode === 200) {

@@ -16,7 +16,7 @@ export default class Register extends Component {
 
   render() {
     return (
-      <div className="register-body">
+      <form className="register-body"  onSubmit={this._onSubmit.bind(this)}>
         <div className="enter-form">
           <span className="register"> 注册Swag Drogue  </span>
           <span className="login-in"><Link to="/login">登录</Link></span>
@@ -43,12 +43,12 @@ export default class Register extends Component {
             </li>
           </ul>
           <div className="button">
-            <button className="btn btn-primary" type="submit" onClick={this._onSubmit.bind(this)}>
+            <button className="btn btn-primary" type="submit">
               注&nbsp;&nbsp;&nbsp;&nbsp;册
             </button>
           </div>
         </div>
-      </div>
+      </form>
     )
   }
 
@@ -88,7 +88,8 @@ export default class Register extends Component {
     })
   }
 
-  _onSubmit() {
+  _onSubmit(event) {
+    event.preventDefault();
     if (this.state.confirmPassword === this.state.password) {
       request.post('/api/users')
         .send({
