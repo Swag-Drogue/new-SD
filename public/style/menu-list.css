@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.top-header {
+    height: 85px;
+    font-size: 24px;
+    line-height: 85px;
+    background-color: rgb(18, 18, 18);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.top-header .login {
+    background-color:rgb(18, 18, 18);
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+    height: 85px;
+}
+
+.login a:link, .login a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+.login a:hover, .login a:active {
+    text-decoration: none;
+    color: rgb(191, 177, 153);
+}
+
+.SD-logo {
+    float: left;
+    margin-left: 50px;
+    width: 80px;
+    height: 80px;
+}
+
+.menu{
+    display: inline-block;
+    background-color:rgb(18, 18, 18);
+}
+
+.menu a:link, .menu a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+.menu a:hover, .menu a:active {
+    text-decoration: none;
+    color: rgb(191, 177, 153);
+}
+
+.wrapper {
+    margin-top: 85px;
+    padding: 20px;
+}

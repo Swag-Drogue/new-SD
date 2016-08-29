@@ -10,6 +10,7 @@ import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 import 'jquery';
 import 'bootstrap-webpack';
 
+
 const route = <Router history={hashHistory}>
   <Route path="/" component={App}>
     <IndexRoute component={Index}/>

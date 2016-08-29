@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import request from 'superagent';
 import {Link} from  'react-router';
 import '../style/register.css';
-
 import {validUserName, validPassword} from '../../shared/register-validation.js';
 export default class Register extends Component {
   constructor(props) {

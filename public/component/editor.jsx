@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {hashHistory} from 'react-router';
 import request from 'superagent'
 import _ from 'lodash';
-import '../style/editor.css';
 
 export default class Editor extends Component {
   constructor(props) {
