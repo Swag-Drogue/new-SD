@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Link, hashHistory} from  'react-router'
 import request from 'superagent'
+import '../style/login.css';
 
 export default class Login extends Component {
   constructor(props) {

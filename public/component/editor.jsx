@@ -49,7 +49,7 @@ export default class Editor extends Component {
             </div>
             <input type="file" id="images" className="btn btn-default" required="true" accept=".jpg,.jpeg,.png,.gif"
                    onChange={(e)=>this._handleImageChange(e)}/>
-            <input type="button" className="btn btn-default" value='上传图片' onClick={this._onImgUpload.bind(this)}/>
+            <input type="edit-button" className="btn btn-default" value='上传图片' onClick={this._onImgUpload.bind(this)}/>
           </div>
         </div>
         <div className="form-group">

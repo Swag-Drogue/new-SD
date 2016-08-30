@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import request from 'superagent';
+import '../style/personal-share.css'
 
 export default class ShareArticle extends Component {
   constructor(props) {
@@ -28,13 +29,15 @@ export default class ShareArticle extends Component {
 
   render() {
     return <div className="container wrapper">
-      <div className="article">
-        <h3>{this.state.title}</h3>
-        <h4>作者：{this.state.author}</h4>
-        <div>
+      <div>
+        <div  className="title">
+          <h3>{this.state.title}</h3>
+        </div>
+        <h4 className="author">作者：{this.state.author}</h4>
+        <div className="uu">
           {this.state.images.map(i => <img className="img-responsive" key={i} src={i}/>)}
         </div>
-        <p>{this.state.content}</p>
+        <p className="content">{this.state.content}</p>
       </div>
     </div>
   }
