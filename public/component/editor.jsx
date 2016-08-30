@@ -32,7 +32,7 @@ export default class Editor extends Component {
   }
 
   render() {
-    return <div className="wrapper container-fluid">
+    return <div className="wrapper container">
       <form onSubmit={this._onSubmit.bind(this)}>
         <div className="form-group">
           <label htmlFor="title">标题</label>

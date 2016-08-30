@@ -34,7 +34,7 @@ export default class ShareArticle extends Component {
           <h3>{this.state.title}</h3>
         </div>
         <h4 className="author">作者：{this.state.author}</h4>
-        <div className="uu">
+        <div className="share-images">
           {this.state.images.map(i => <img className="img-responsive" key={i} src={i}/>)}
         </div>
         <p className="content">{this.state.content}</p>
