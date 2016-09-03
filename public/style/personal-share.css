@@ -1,18 +1,26 @@
 .author {
     float: right;
+    margin-right: 50px;
 }
 
 .title {
     margin-left: 220px;
-    width: 400px;
-
 }
 
 .share-images {
-    margin-top: 100px;
+    margin-top: 50px;
     margin-left: 180px;
+    padding: 20px 0;
+}
+
+.share-images img + img {
+    margin-top: 40px;
 }
 
 .content {
     font-size: 24px;
+}
+
+.article-body {
+    padding: 20px 30px;
 }

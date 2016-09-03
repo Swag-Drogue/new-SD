@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import request from 'superagent';
-import {Link} from  'react-router';
+import {Link, hashHistory} from  'react-router';
 import '../style/register.css';
 import {validUserName, validPassword} from '../../shared/register-validation.js';
 export default class Register extends Component {
@@ -108,6 +108,7 @@ export default class Register extends Component {
         .end((err, res) => {
           if (err) return alert(res.text);
           alert(res.text);
+          hashHistory.push('/login');
         })
     } else {
       alert('两次输入密码不一致')

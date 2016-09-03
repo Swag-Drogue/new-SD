@@ -26,7 +26,8 @@ export default class Index extends Component {
       {this.state.allArticles.map((article)=>
         <div key={article._id} className="cell">
           <Link to={'/share/' + article._id}>
-            <div className="img-instruc"><img className="img-responsive" src={article.images[0]}/></div>
+            <div className="img-instruc"><img className="img-responsive" src={article.images[0]} alt={article.title}/>
+            </div>
           </Link>
           <div className="instruction"><p>{article.title}</p></div>
         </div>)}

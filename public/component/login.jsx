@@ -65,7 +65,7 @@ export default class Login extends Component {
       .end((err, res) => {
         if (err) return alert(res.text);
         alert(res.text);
-        hashHistory.push('/edit');
+        hashHistory.push('/index');
       })
 
   }
