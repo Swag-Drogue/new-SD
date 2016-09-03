@@ -53,7 +53,7 @@ export default class Editor extends Component {
           </div>
         </div>
         <div className="form-group">
-          <label htmlFor="name">文本框</label>
+          <label htmlFor="name">正文</label>
           <textarea className="form-control" rows="3" required="true"
                     value={this.state.content}
                     onChange={this._onArticleChange.bind(this)}/>

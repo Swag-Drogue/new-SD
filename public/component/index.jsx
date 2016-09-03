@@ -22,16 +22,14 @@ export default class Index extends Component {
   }
 
   render() {
-    return <div className="wrapper container">
-      <div className="row all-article-cell">
+    return <div className="wrapper-articles container">
         {this.state.allArticles.map((article)=>
-          <div key={article._id} className="col-xs-4 article-cell">
+          <div key={article._id} className="cell">
             <Link to={'/share/' + article._id}>
-              <img className="img-responsive" src={article.images[0]}/>
+              <div className="img-instruc"><img className="img-responsive" src={article.images[0]}/></div>
             </Link>
-            <p>{article.title}</p>
+            <div className="instruction"><p>{article.title}</p></div>
           </div>)}
-      </div>
     </div>
   }
 }

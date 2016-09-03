@@ -3,11 +3,15 @@
     padding: 0;
 }
 
+/*.page-body{*/
+    /*background:url("../images/clean-white-polygon-backgrounds-10-1120x633.jpg") repeat ;*/
+/*}*/
+
 .top-header {
     height: 85px;
     font-size: 24px;
     line-height: 85px;
-    background-color: rgb(18, 18, 18);
+    background-color: rgba(18, 18, 18,0.7);
     position: fixed;
     top: 0;
     left: 0;
@@ -16,11 +20,15 @@
 }
 
 .top-header .login {
-    background-color:rgb(18, 18, 18);
     display: inline-block;
     float: right;
     margin-right: 20px;
     height: 85px;
+    font-size: 20px;
+}
+
+.login a+a{
+    margin-left: 30px;
 }
 
 .login a:link, .login a:visited {
@@ -42,7 +50,17 @@
 
 .menu{
     display: inline-block;
-    background-color:rgb(18, 18, 18);
+    margin-left: 50px;
+}
+
+.menu a{
+    display: inline-block;
+    height: 85px;
+    padding: 0 5px;
+}
+
+.menu a+a{
+    margin-left: 2px;
 }
 
 .menu a:link, .menu a:visited {
@@ -56,6 +74,30 @@
 }
 
 .wrapper {
-    margin-top: 85px;
-    padding: 20px;
+    padding-top: 100px;
+    padding-bottom: 30px;
+
+}
+
+.wrapper-articles{
+    padding-top: 100px;
+    background: #fff;
+}
+
+.cell{
+    float: left;
+    width: 300px;
+    height: 400px;
+    margin-left: 60px;
+}
+
+.cell .img-instruc{
+    min-height: 100px;
+    max-height: 300px;
+    overflow: hidden;
+
+}
+
+.instruction{
+    height: 80px;
 }

@@ -14,29 +14,29 @@ export default class Login extends Component {
 
   render() {
     return (
-      <form onSubmit={this._onSubmit.bind(this)}>
-        <div className="login-body">
-          <div className="enter-form">
-            <span className="register"> 登录Swag Drogue  </span>
-            <span className="login-in"><Link to="/register">注册</Link></span>
+      <form onSubmit={this._onSubmit.bind(this)} className="form-horizontal login-body">
+        <div className="enter-form">
+          <span className="register"> 登录Swag Drogue  </span>
+          <span className="login-in"><Link to="/register">注册</Link></span>
+        </div>
+        <div className="form-group edit-lines">
+          <label htmlFor="login-name" className="col-xs-4 control-label"><img src="images/reg.png"/>用户名：</label>
+          <div className="col-xs-8">
+            <input type="text" className="register-name form-control" id="login-name"
+                   onChange={this._onUserNameChange.bind(this)}/>
           </div>
-          <div className="enter-button">
-            <ul>
-              <li className="edit-lines"><img src="images/reg.png"/>
-                <input type="text" className="register-name"
-                       onChange={this._onUserNameChange.bind(this)}/>
-              </li>
-              <li className="edit-lines"><img src="images/key.png"/>
-                <input type="password" className="register-password"
-                       onChange={this._onPasswordChange.bind(this)}/>
-              </li>
-            </ul>
-            <div className="button">
-              <button className="btn btn-primary" type="submit">
-                登&nbsp;&nbsp;&nbsp;&nbsp;录
-              </button>
-            </div>
+        </div>
+        <div className="form-group edit-lines">
+          <label htmlFor="login-password" className="col-xs-4 control-label"><img src="images/key.png"/>密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+          <div className="col-xs-8">
+            <input type="password" className="register-password form-control" id="login-password"
+                   onChange={this._onPasswordChange.bind(this)}/>
           </div>
+        </div>
+        <div className="button">
+          <button className="btn btn-primary" type="submit">
+            登&nbsp;&nbsp;&nbsp;&nbsp;录
+          </button>
         </div>
       </form>
     )
