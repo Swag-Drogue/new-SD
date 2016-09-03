@@ -28,8 +28,8 @@ export default class ShareArticle extends Component {
   }
 
   render() {
-    return <div className="container wrapper">
-      <div>
+    return <div className="container wrapper-articles">
+      <div className="article-body">
         <div className="title">
           <h3>{this.state.title}</h3>
         </div>
