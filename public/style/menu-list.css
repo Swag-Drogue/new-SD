@@ -4,14 +4,14 @@
 }
 
 /*.page-body{*/
-    /*background:url("../images/clean-white-polygon-backgrounds-10-1120x633.jpg") repeat ;*/
+/*background:url("../images/clean-white-polygon-backgrounds-10-1120x633.jpg") repeat ;*/
 /*}*/
 
 .top-header {
     height: 85px;
     font-size: 24px;
     line-height: 85px;
-    background-color: rgba(18, 18, 18,0.7);
+    background-color: rgba(18, 18, 18, 0.7);
     position: fixed;
     top: 0;
     left: 0;
@@ -27,7 +27,7 @@
     font-size: 20px;
 }
 
-.login a+a{
+.login a + a {
     margin-left: 30px;
 }
 
@@ -48,18 +48,18 @@
     height: 80px;
 }
 
-.menu{
+.menu {
     display: inline-block;
     margin-left: 50px;
 }
 
-.menu a{
+.menu a {
     display: inline-block;
     height: 85px;
     padding: 0 5px;
 }
 
-.menu a+a{
+.menu a + a {
     margin-left: 2px;
 }
 
@@ -79,25 +79,25 @@
 
 }
 
-.wrapper-articles{
+.wrapper-articles {
     padding-top: 100px;
     background: #fff;
 }
 
-.cell{
+.cell {
     float: left;
     width: 300px;
     height: 400px;
     margin-left: 60px;
 }
 
-.cell .img-instruc{
+.cell .img-instruc {
     min-height: 100px;
     max-height: 300px;
     overflow: hidden;
 
 }
 
-.instruction{
+.instruction {
     height: 80px;
 }

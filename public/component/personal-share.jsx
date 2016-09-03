@@ -30,7 +30,7 @@ export default class ShareArticle extends Component {
   render() {
     return <div className="container wrapper">
       <div>
-        <div  className="title">
+        <div className="title">
           <h3>{this.state.title}</h3>
         </div>
         <h4 className="author">作者：{this.state.author}</h4>

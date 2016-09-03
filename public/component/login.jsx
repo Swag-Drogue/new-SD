@@ -27,7 +27,8 @@ export default class Login extends Component {
           </div>
         </div>
         <div className="form-group edit-lines">
-          <label htmlFor="login-password" className="col-xs-4 control-label"><img src="images/key.png"/>密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+          <label htmlFor="login-password" className="col-xs-4 control-label"><img
+            src="images/key.png"/>密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
           <div className="col-xs-8">
             <input type="password" className="register-password form-control" id="login-password"
                    onChange={this._onPasswordChange.bind(this)}/>
