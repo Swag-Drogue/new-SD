@@ -8,8 +8,8 @@ import Editor from './component/editor.jsx';
 import ShareArticle from './component/personal-share.jsx';
 import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 import 'jquery';
-import 'bootstrap-webpack';
-
+import'bootstrap-webpack';
+import './style/body.css';
 
 const route = <Router history={hashHistory}>
   <Route path="/" component={App}>

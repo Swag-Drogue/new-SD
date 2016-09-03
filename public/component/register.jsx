@@ -17,37 +17,44 @@ export default class Register extends Component {
 
   render() {
     return (
-      <form className="register-body"  onSubmit={this._onSubmit.bind(this)}>
+      <form className="register-body form-horizontal" onSubmit={this._onSubmit.bind(this)}>
         <div className="enter-form">
           <span className="register"> 注册Swag Drogue  </span>
           <span className="login-in"><Link to="/login">登录</Link></span>
-
         </div>
-        <div className="enter-button">
-          <ul>
-            <li className="edit-lines"><img src="images/reg.png"/>
-              <input type="text" placeholder="请输入6到20位数字字母" className="register-name"
-                     onChange={this._onUserNameChange.bind(this)}
-                     onBlur={this._checkUserName.bind(this)}/>
-              <span>{this.state.userNameError}</span>
-            </li>
-            <li className="edit-lines"><img src="images/key.png"/>
-              <input type="password" placeholder="请输入6位密码" className="register-password"
-                     onChange={this._onPasswordChange.bind(this)}
-                     onBlur={this._checkPassword.bind(this)}/>
-              <span>{this.state.passwordError}</span>
-            </li>
-            <li className="edit-lines"><img src="images/conKey.png"/>
-              <input type="password" placeholder="请确认你的密码" className="register-confirmPassword"
-                     value={this.state.confirmPassword}
-                     onChange={this._onConfirmChange.bind(this)}/>
-            </li>
-          </ul>
-          <div className="button">
-            <button className="btn btn-primary" type="submit">
-              注&nbsp;&nbsp;&nbsp;&nbsp;册
-            </button>
+        <div className="form-group edit-lines">
+          <label htmlFor="register-name" className="col-xs-4 control-label"><img src="./images/reg.png"/> &nbsp;用 户 名 ：</label>
+          <div className="col-xs-8">
+            <input type="text" placeholder="请输入6到20位数字字母" id="register-name" className="register-name form-control"
+                   onChange={this._onUserNameChange.bind(this)}
+                   onBlur={this._checkUserName.bind(this)}/>
           </div>
+          <span>{this.state.userNameError}</span>
+        </div>
+        <div className="form-group edit-lines">
+          <label htmlFor="register-password" className="col-xs-4 control-label"><img src="images/key.png"/>&nbsp;
+            密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+          <div className="col-xs-8">
+            <input type="password" placeholder="请输入6位密码" id="register-password"
+                   className="register-password form-control"
+                   onChange={this._onPasswordChange.bind(this)}
+                   onBlur={this._checkPassword.bind(this)}/>
+          </div>
+          <span>{this.state.passwordError}</span>
+        </div>
+        <div className="form-group edit-lines">
+          <label htmlFor="register-confirm-password" className="col-xs-4 control-label"><img src="images/conKey.png"/>确认密码：</label>
+          <div className="col-xs-8">
+            <input type="password" placeholder="请确认你的密码" id="register-comfirm-password"
+                   className="register-password form-control"
+                   value={this.state.confirmPassword}
+                   onChange={this._onConfirmChange.bind(this)}/>
+          </div>
+        </div>
+        <div className="button">
+          <button className="btn btn-primary" type="submit">
+            注&nbsp;&nbsp;&nbsp;&nbsp;册
+          </button>
         </div>
       </form>
     )
